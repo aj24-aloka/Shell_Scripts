@@ -2,6 +2,7 @@
 
 set -x #to debug
 n=2 #delete old files except this number
+$(truncate -s 0 list.txt)
 ls -lrt | awk '(NR>1){print $9}' >> list.txt
 count=$(wc -l < list.txt)
 num=$((  $count - $n ))
